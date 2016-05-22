@@ -1,4 +1,6 @@
-//package chapter15;
+//U10416020
+
+package ball;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -14,13 +16,17 @@ public class BounceBallControl extends Application {
     ballPane.setOnMousePressed(e -> ballPane.pause());
     ballPane.setOnMouseReleased(e -> ballPane.play());
 
-    // Increase and decrease animation   
+    // Increase and decrease animation and add balls   
     ballPane.setOnKeyPressed(e -> {
       if (e.getCode() == KeyCode.UP) {
         ballPane.increaseSpeed();
       } 
       else if (e.getCode() == KeyCode.DOWN) {
         ballPane.decreaseSpeed();
+      }
+      //Enter to add balls
+      else if(e.getCode() == KeyCode.ENTER){
+          ballPane.addBall();
       }
     });
 
@@ -37,6 +43,7 @@ public class BounceBallControl extends Application {
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.
+     * @param args
    */
   public static void main(String[] args) {
     launch(args);
